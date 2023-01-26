@@ -5,32 +5,35 @@ import Model.Furniture;
 import Model.Location;
 import Physics.Weight;
 
-import net.moznion.random.string.RandomStringGenerator;
-
 public class Main {
-	public static void runStudy() {
 
+	public static void runStudy() {
 		Location study = createStudy();
-		Furniture glebsPrimaryDesk = new Furniture(
+		Furniture glebsDesk = new Furniture(
+				"Gleb's Desk",
 				new Weight(20),
 				new Dimensions(1.2,0.8,1.8),
 				study
 		);
-		System.out.println(glebsPrimaryDesk.toString());
-		glebsPrimaryDesk.setLocation(study);
-		System.out.println(glebsPrimaryDesk.toString());
+		Furniture aljonasDesk = new Furniture(
+				"Aljona's Desk",
+				new Weight(40),
+				new Dimensions(1.4,0.8,1.4),
+				new Location()
+		);
+		System.out.println(glebsDesk.toString());
+		System.out.println(aljonasDesk.toString());
+		glebsDesk.setLocation(study);
+		System.out.println(glebsDesk.toString());
 	}
 
 	private static Location createStudy() {
+		String studyName = "Study";
 		Dimensions studyRoom = new Dimensions(4,4,2.5);
-		return new Location(studyRoom);
+		return new Location(studyName, studyRoom);
 	}
 
 	public static void main(String[] args) {
-		RandomStringGenerator generator = new RandomStringGenerator();
-		String randomString = generator.generateFromPattern("Ccns");
-		System.out.println(randomString);
-
 		runStudy();
 	}
 

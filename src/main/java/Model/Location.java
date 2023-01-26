@@ -4,46 +4,53 @@ import Physics.Dimensions;
 import Physics.Weight;
 
 public class Location {
+	private String name;
 	private String relation;
 	private Item relationItem;
 	private Dimensions volume;
 	private static final String ON = "On";
 	private static final Item FLOOR = new Item(
 			new Weight(0),
-			new Dimensions(4,4,0)
+			new Dimensions(4,4,0),
+			"Floor"
 	);
-
-	public String getRelation() {
-		return relation;
-	}
-	public Item getRelationItem() {
-		return relationItem;
-	}
 	public void setRelation(String relation, Item relationItem) {
 		this.relation = relation;
 		this.relationItem = relationItem;
 	}
+	public String showRelation() {
+		return relation + " the " + relationItem.getName();
+	}
 
+	// This constructor is used for the location related to something: e.g. "On the floor", "On the table", "In the cabinet"
+	// which is the default type of the location without parameters. The default location is "On the floor"
+	public Location(String name, String relation, Item relationItem) {
+		this.relation = relation;
+		this.relationItem = relationItem;
+	}
 	public Location() {
 		this.relation = ON;
 		this.relationItem = FLOOR;
 	}
-
-	public Location(String relation, Item relationItem) {
-		this.relation = relation;
-		this.relationItem = relationItem;
-	}
-
-	public Location(Dimensions volume) {
+	// This constructor is used for the location itself as a limited space. Normally it is an indoor place, e.g. a room, a closet, a warehouse etc. It is expected to have a name.
+	public Location(String name, Dimensions volume) {
+		this.name = name;
 		this.volume = volume;
 	}
 
 	@Override
 	public String toString() {
-		return "Location{" +
-				"relation='" + relation + '\'' +
-				", relationItem=" + relationItem +
-				", volume=" + volume +
-				'}';
+		boolean thereIsRelation = relation != null && relationItem != null;
+
+		if (thereIsRelation) {
+			return "Location { " +
+					showRelation() +
+					" }";
+		} else {
+			return "Location { " +
+					name + " (" +
+					volume.getVolume() +
+					") }";
+		}
 	}
 }

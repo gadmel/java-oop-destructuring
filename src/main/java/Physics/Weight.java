@@ -33,6 +33,6 @@ public class Weight {
 
 	@Override
 	public String toString() {
-		return "Weight{" + value + " " + measurementUnit + '}';
+		return "Weight { " + value + " " + measurementUnit + " }";
 	}
 }
