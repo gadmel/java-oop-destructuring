@@ -1,5 +1,8 @@
 package Model;
 
+import Physics.Dimensions;
+import Physics.Weight;
+
 public class Location {
 	private String relation;
 	private Item relationItem;

@@ -1,4 +1,4 @@
-package Model;
+package Physics;
 
 public class Weight {
 	private double value;
@@ -29,5 +29,10 @@ public class Weight {
 
 	public void setValue(double value) {
 		this.value = value;
+	}
+
+	@Override
+	public String toString() {
+		return "Weight{" + value + " " + measurementUnit + '}';
 	}
 }

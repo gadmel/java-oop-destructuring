@@ -1,5 +1,8 @@
 package Model;
 
+import Physics.Dimensions;
+import Physics.Weight;
+
 public class Furniture extends Item {
 
 	public Furniture(Weight weight, Dimensions dimensions) {

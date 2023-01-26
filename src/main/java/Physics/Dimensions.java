@@ -1,4 +1,4 @@
-package Model;
+package Physics;
 
 public class Dimensions {
 	private double length;
@@ -19,5 +19,14 @@ public class Dimensions {
 		this.width = width;
 		this.height = height;
 		this.measurementUnit = measurementUnit;
+	}
+
+	@Override
+	public String toString() {
+		return "Dimensions{" +
+				"length=" + length + " " + measurementUnit +
+				", width=" + width + " " + measurementUnit +
+				", height=" + height + " " + measurementUnit +
+				'}';
 	}
 }

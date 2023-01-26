@@ -1,9 +1,10 @@
 package org.inventory;
 
-import Model.Dimensions;
+import Physics.Dimensions;
 import Model.Furniture;
 import Model.Location;
-import Model.Weight;
+import Physics.Weight;
+
 import net.moznion.random.string.RandomStringGenerator;
 
 public class Main {

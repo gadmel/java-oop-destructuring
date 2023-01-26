@@ -1,6 +1,7 @@
 package Model;
 
-import java.awt.*;
+import Physics.Dimensions;
+import Physics.Weight;
 
 public class Item {
 	private int id;
