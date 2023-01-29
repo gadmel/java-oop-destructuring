@@ -52,9 +52,11 @@ public class Item {
 	public Weight getWeight() {
 		return weight;
 	}
-
 	public Dimensions getDimensions() {
 		return dimensions;
+	}
+	public Location getLocation() {
+		return location;
 	}
 
 	@Override
@@ -68,9 +70,21 @@ public class Item {
 				'}';
 	}
 
-	public Location getLocation() {
-		return location;
+	public void move(Location moveToLocation) {
+		this.setLocation(moveToLocation);
+		System.out.println("Moved " + this.getName() + " to " + moveToLocation.getName());
 	}
+
+	public void putOnASurface(String relation, Item relationItem){
+		this.setLocation(new Location(relation, relationItem));
+		System.out.println("Put " + this.getName() + " " + relation + " the " + relationItem.getName());
+	};
+
+	public void putOnASurfaceWithinSameLocation(String relation, Item relationItem){
+		this.getLocation().setRelation(relation, relationItem);
+		System.out.println("Put " + this.getName() + " " + relation + " the " + relationItem.getName() + " within " + this.getLocation().getName());
+	};
+
 	public void setLocation(Location location) {
 		this.location = location;
 	}

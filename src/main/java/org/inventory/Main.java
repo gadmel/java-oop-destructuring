@@ -1,5 +1,6 @@
 package org.inventory;
 
+import Model.Item;
 import Physics.Dimensions;
 import Model.Furniture;
 import Model.Location;
@@ -23,8 +24,13 @@ public class Main {
 		);
 		System.out.println(glebsDesk.toString());
 		System.out.println(aljonasDesk.toString());
-		glebsDesk.setLocation(study);
-		System.out.println(glebsDesk.toString());
+		aljonasDesk.move(study);
+		System.out.println(aljonasDesk.toString());
+		aljonasDesk.putOnASurface("on", glebsDesk);
+		System.out.println(aljonasDesk.toString());
+		aljonasDesk.move(new Location("Kitchen", new Dimensions(2,2,2.5)));
+		aljonasDesk.putOnASurfaceWithinSameLocation("on", new Item( new Weight(10), new Dimensions(1,1,0.6), "Table"));
+		System.out.println(aljonasDesk.toString());
 	}
 
 	private static Location createStudy() {
